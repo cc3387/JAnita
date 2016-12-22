@@ -37,10 +37,10 @@ class Menu:UIViewController{
     
     //About Leader
     if(Referred.referralemail == "luianita@yahoo.com"){
-    self.Leadership.text = "About Anita"
+    self.Leadership.text = "Leadership"
     }
     else{
-    self.Leadership.text = "About Leader"
+    self.Leadership.text = "Leadership"
     }
         
     self.Opportunities.text = "Opportunity"
@@ -63,7 +63,7 @@ class Menu:UIViewController{
         
     //About Leader
     if(Referred.referralemail == "luianita@yahoo.com"){
-    self.Leadership.text = "有關Anita"
+    self.Leadership.text = "有關介紹人"
     }
     else{
     self.Leadership.text = "有關介紹人"
@@ -89,7 +89,7 @@ class Menu:UIViewController{
     
     //About Leader
     if(Referred.referralemail == "luianita@yahoo.com"){
-    self.Leadership.text = "有关Anita"
+    self.Leadership.text = "有关介紹人"
     }
     else{
     self.Leadership.text = "有关介紹人"
@@ -109,7 +109,11 @@ class Menu:UIViewController{
     
     @IBAction func Shoplink(_ sender: AnyObject) {
         
-        var product = "https://simplyeffective.jeunesseglobal.com/"+self.link
+        if(ShopName == ""){
+        ShopName = "simplyeffective"
+        }
+
+        var product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -119,12 +123,17 @@ class Menu:UIViewController{
     
     @IBAction func BecomeDistributor(_ sender: AnyObject) {
         
+        if(ShopName == ""){
+        ShopName = "simplyeffective"
+        }
+        
         if(ProfileLogin.joinlink == ""){
-            if let url = NSURL(string: "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=simplyeffective") {
+            if let url = NSURL(string: "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=" + ShopName) {
                 UIApplication.shared.openURL(url as URL)
             }
         }
         else{
+            
             if let url = NSURL(string: ProfileLogin.joinlink) {
                 UIApplication.shared.openURL(url as URL)
             }
@@ -145,7 +154,7 @@ class Menu:UIViewController{
     
     @IBAction func Travel(_ sender: AnyObject) {
         
-        var product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/lifestyle-rewards"
+        var product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/lifestyle-rewards"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -155,7 +164,7 @@ class Menu:UIViewController{
     @IBAction func Buyproducts(_ sender: AnyObject) {
         if(ProfileLogin.loginemail == ""){
             
-             var product = "https://simplyeffective.jeunesseglobal.com/"+self.link
+            var product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link
             
             if let url = NSURL(string: product) {
                 UIApplication.shared.openURL(url as URL)
@@ -173,21 +182,21 @@ class Menu:UIViewController{
                         
                         if(ProfileLogin.shoplink == ""){
                             
-                             var product = "https://simplyeffective.jeunesseglobal.com/"+self.link
-                            
+                            var product = "https://simplyeffective.jeunesseglobal.com/"+self.link
                             
                             if let url = NSURL(string: product) {
                                 UIApplication.shared.openURL(url as URL)
                             }
                         }
                         else{
+                            
                             if let url = NSURL(string: ProfileLogin.shoplink) {
                                 UIApplication.shared.openURL(url as URL)
                             }
                         }
                         
                     }
-                })
+              })
         }
     }
     
@@ -201,10 +210,10 @@ class Menu:UIViewController{
             
             //About Leader
             if(Referred.referralemail == "luianita@yahoo.com"){
-                self.Leadership.text = "About Anita"
+                self.Leadership.text = "Leadership"
             }
             else{
-                self.Leadership.text = "About Leader"
+                self.Leadership.text = "Leadership"
             }
             
             self.Opportunities.text = "Opportunity"
@@ -225,7 +234,7 @@ class Menu:UIViewController{
             self.Homepage.text = "回到首頁"
             //About Leader
             if(Referred.referralemail == "luianita@yahoo.com"){
-                self.Leadership.text = "有關Anita"
+                self.Leadership.text = "有關介紹人"
             }
             else{
                 self.Leadership.text = "有關介紹人"
@@ -248,7 +257,7 @@ class Menu:UIViewController{
             self.Joinus.text = "加入我们"
             //About Leader
             if(Referred.referralemail == "luianita@yahoo.com"){
-                self.Leadership.text = "有关Anita"
+                self.Leadership.text = "有关介紹人"
             }
             else{
                 self.Leadership.text = "有关介紹人"

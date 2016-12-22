@@ -10,7 +10,7 @@ import Foundation
 import Batch
 import Firebase
 
-class FirstPage:UIViewController{
+class FirstPage:UIViewController,UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var ReferralWarning: UILabel!
     @IBOutlet weak var Referral: UITextField!
@@ -21,6 +21,9 @@ class FirstPage:UIViewController{
     @IBOutlet weak var StartBrowsing: UILabel!
     @IBOutlet weak var JoinAnitaTeam: UILabel!
     @IBOutlet weak var ListofReferer: UILabel!
+    
+    //List of referrer pickerview
+    @IBOutlet weak var myPicker: UIPickerView!
     
     //////////////////////////////////////
     @IBAction func Anitalink(_ sender: Any) {
@@ -72,9 +75,18 @@ class FirstPage:UIViewController{
     @IBAction func ReferralLogin(_ sender: AnyObject) {
         
         ProfileLogin.loginemail = self.Referral.text!
-        
+        Referred.referralemail = self.Referral.text!
         
         if(self.Referral.text != ""){
+        
+        var ref = FIRDatabase.database().reference()
+            
+        ref.queryOrdered(byChild: "Email").queryEqual(toValue: ProfileLogin.loginemail).observe(.childAdded, with: { snapshot in
+                if let source = snapshot.value as? [String:AnyObject] {
+                    Name = source["Owner"] as! String!
+                    ShopName = source["Shop"] as! String!
+                }
+        })
             
         //Load to the next viewcontroller
         loadDestinationVC()
@@ -92,8 +104,8 @@ class FirstPage:UIViewController{
             self.ReferralWarning.textColor = UIColor.red
             }
             else if(language == "simplified"){
-                self.ReferralWarning.text = "請输入电邮"
-                self.ReferralWarning.textColor = UIColor.red
+            self.ReferralWarning.text = "請输入电邮"
+            self.ReferralWarning.textColor = UIColor.red
             }
         }
         
@@ -128,6 +140,11 @@ class FirstPage:UIViewController{
             self.JoinAnitaTeam.text = "立刻加入Anita的团队!"
             self.ListofReferer.text = "介紹人电邮列表"
         }
+        
+        myPicker.delegate = self;
+        myPicker.dataSource = self;
+        
+        updateemail();
     }
     
     func loadDestinationVC(){
@@ -139,6 +156,47 @@ class FirstPage:UIViewController{
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    var pickerData = [friend_email_list]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData[component].count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[component][row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView!) -> UIView
+    {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
+        pickerLabel.text = pickerData[component][row]
+        pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 14)
+        //pickerLabel.font = UIFont(name: "System Thin", size: 10) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.center
+        return pickerLabel
+    }
+    
+    ///////////////////////////////// Update Email Scroll /////////////////////////////////////////////
+    enum PickerComponent:Int{
+        case email = 0
+    }
+    
+    func updateemail(){
+        let sizeComponent = PickerComponent.email.rawValue
+        let size = pickerData[sizeComponent][myPicker.selectedRow(inComponent: sizeComponent)]
+        self.Referral.text = size;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateemail();
+    }
+    ///////////////////////////////////////////////////////////////////////////////////
     
     
 };

@@ -27,19 +27,19 @@ class GetRich:UIViewController, UIScrollViewDelegate {
             language = "english"
             self.Back.text = "Back"
             self.Opportunity.text = "Opportunity"
-            self.GetRichTextView.text! = "1+4 Formula of Success : " + "\n" + "\n" + "1. Join Us：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=simplyeffective" + "\n" + "\n" + "2. Experience Jeunesse products, learn the system and build up your team through Jeunesse University, Jeunesse annual EXPO" + "\n" + "https://simplyeffective.jeunesseglobal.com/zh-US/calendar"
+            self.GetRichTextView.text! = "The Success of J.Anita" + "\n" + "\n" + "Internet      J.Anita Product" + "\n" + "Stay Young       J.Anita System" + "\n" + "Team Power    J.Anita Culture" + "\n" + "\n" + "1+4 Formula of Success : " + "\n" + "1. Join Us：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=" + ShopName + "\n" + "\n" + "2. Experience Jeunesse products, learn the system and build up your team through Jeunesse University, Jeunesse annual EXPO" + "\n" + "https://" + ShopName + ".jeunesseglobal.com/zh-US/calendar"
         }
         else if(language == "traditional"){
             language = "traditional"
             self.Back.text = "回到前頁"
             self.Opportunity.text = "當今趨勢"
-            self.GetRichTextView.text! = "1+4 成功方程式: " + "\n" + "1. 加入我們：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=simplyeffective" + "\n" + "2. 全面體驗產品，跟貼系統帶夥伴參加四個重要訓練： 艾莫總裁訓練班 婕斯大學 創業新典範年會" + "\n" + "https://simplyeffective.jeunesseglobal.com/zh-US/calendar"
+            self.GetRichTextView.text! = "J.Anita 的成功因素" + "\n" + "\n" + "互聯網      J.Anita 產品" + "\n" + "抗老化       J.Anita 系統" + "\n" + "團隊力量        J.Anita 制度文化" + "\n" + "\n" + "1+4 成功方程式: " + "\n" + "1. 加入我們：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=" + ShopName + "\n" + "\n" + "2. 全面體驗產品，跟貼系統帶夥伴參加四個重要訓練： 艾莫總裁訓練班 婕斯大學 創業新典範年會" + "\n" + "https://" + ShopName + ".jeunesseglobal.com/zh-US/calendar"
         }
         else if(language == "simplified"){
             language = "simplified"
             self.Back.text = "回到前页"
             self.Opportunity.text = "当今趋势"
-            self.GetRichTextView.text! = "1+4 成功方程式: " + "\n" + "1. 加入我们：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=simplyeffective" + "\n" + "2. 全面体验产品，跟贴系统带伙伴参加四个重要训练：艾莫总裁训练班 婕斯大学 创业新典范年会" + "\n" + "https://simplyeffective.jeunesseglobal.com/zh-US/calendar"
+            self.GetRichTextView.text! = "J.Anita 的成功因素" + "\n" + "\n" + "互联网      J.Anita 产品" + "\n" + "抗老化      J.Anita 系统" + "\n" + "团队力量       J.Anita 制度文化" + "\n" + "\n" + "1+4 成功方程式: " + "\n" + "1. 加入我们：" + "\n" + "https://joffice.jeunesseglobal.com/signup.asp?locale=zh-US&siteurl=" + ShopName + "\n" + "\n" + "2. 全面体验产品，跟贴系统带伙伴参加四个重要训练：艾莫总裁训练班 婕斯大学 创业新典范年会" + "\n" + "https://" + ShopName + ".jeunesseglobal.com/zh-US/calendar"
         }
 
         

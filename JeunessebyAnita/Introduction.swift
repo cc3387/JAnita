@@ -8,6 +8,7 @@
 
 import Foundation
 import Batch
+import Firebase
 
 class Intro:UIViewController{
 
@@ -85,6 +86,17 @@ class Intro:UIViewController{
             self.JProducts.text = "婕斯产品"
             self.StartBrowsing.text = "开始浏览"
         }
+        
+        //Appending Emails
+        friend_email_list.removeAll()
+        
+        var ref = FIRDatabase.database().reference()
+        ref.child("EmailList").queryLimited(toLast: 100).observe(.childAdded, with:{ snapshot in
+            if let source = snapshot.value as? [String:AnyObject] {
+                friend_email_list.append(source["Email"] as! String)
+            }
+        })
+        
     }
     
     
@@ -92,6 +104,9 @@ class Intro:UIViewController{
 
 //Language
 var language = "english"
+var friend_email_list = [String]()
 
-
+//List to be read and applied to profile
+var Name = ""
+var ShopName = ""
 

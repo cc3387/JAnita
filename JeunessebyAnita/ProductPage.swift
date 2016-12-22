@@ -78,7 +78,11 @@ class ProductPage:UIViewController{
     
     @IBAction func MoneND(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/m1nd"
+        if(ShopName == ""){
+        ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/m1nd"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -87,7 +91,11 @@ class ProductPage:UIViewController{
     
     @IBAction func ZEN(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/zen/project"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/zen/project"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -96,7 +104,11 @@ class ProductPage:UIViewController{
     
     @IBAction func FINITI(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/finiti"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/finiti"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -105,7 +117,11 @@ class ProductPage:UIViewController{
     
     @IBAction func Reserve(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/reserve"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/finiti"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -114,7 +130,11 @@ class ProductPage:UIViewController{
     
     @IBAction func AMPM(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/am/pmessentials"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/am/pmessentials"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -123,7 +143,11 @@ class ProductPage:UIViewController{
     
     @IBAction func Luminecense(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/luminesce"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
+        
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/luminesce"
         
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
@@ -133,8 +157,12 @@ class ProductPage:UIViewController{
     
     @IBAction func InstantAgeless(_ sender: AnyObject) {
         
-        let product = "https://simplyeffective.jeunesseglobal.com/"+self.link+"/instantly-ageless"
+        if(ShopName == ""){
+            ShopName = "simplyeffective"
+        }
         
+        let product = "https://" + ShopName + ".jeunesseglobal.com/"+self.link+"/instantly-ageless"
+    
         if let url = NSURL(string: product) {
             UIApplication.shared.openURL(url as URL)
         }
