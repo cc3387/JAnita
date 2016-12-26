@@ -145,6 +145,10 @@ class FirstPage:UIViewController,UIPickerViewDataSource, UIPickerViewDelegate{
         myPicker.dataSource = self;
         
         updateemail();
+        
+        if(start == 0){
+            self.Referral.text = "luianita@yahoo.com"
+        }
     }
     
     func loadDestinationVC(){
@@ -228,4 +232,4 @@ struct Referred{
     static var referralemail = "";
 };
 
-
+var start = 0;
